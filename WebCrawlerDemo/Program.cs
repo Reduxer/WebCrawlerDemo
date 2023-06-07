@@ -96,32 +96,32 @@ namespace WebCrawlerDemo
 
             siteInfo.RentalPeriod = (outDt - inDt).TotalHours;
 
-            siteInfo.WaterHookup = CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Water Hookup:')]/strong", (text) =>
+            siteInfo.WaterHookup = ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Water Hookup:')]/strong", (text) =>
             {
                 return text.Contains('Y', StringComparison.OrdinalIgnoreCase) ? "Yes" : "No";
             }, "No");
 
-            siteInfo.ElectricHookup = CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Electricity Hookup:')]/strong", (text) =>
+            siteInfo.ElectricHookup = ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Electricity Hookup:')]/strong", (text) =>
             {
                 return text + "A";
             }, "No data available");
 
-            siteInfo.SewerHookup = CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Sewer Hookup:')]/strong", (text) =>
+            siteInfo.SewerHookup = ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Sewer Hookup:')]/strong", (text) =>
             {
                 return text.Contains('Y', StringComparison.OrdinalIgnoreCase) ? "Yes" : "No";
             }, "No");
 
-            siteInfo.PicnicTable = CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Picnic Table:')]/strong", (text) =>
+            siteInfo.PicnicTable = ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Picnic Table:')]/strong", (text) =>
             {
                 return text.Contains('Y', StringComparison.OrdinalIgnoreCase) ? "Yes" : "No";
             }, "No");
 
-            siteInfo.SiteLength = double.Parse(CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Site Length:')]/strong", (text) =>
+            siteInfo.SiteLength = double.Parse(ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Site Length:')]/strong", (text) =>
             {
                 return text;
             }, "0"));
 
-            siteInfo.SiteWidth = double.Parse(CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Site Width:')]/strong", (text) =>
+            siteInfo.SiteWidth = double.Parse(ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Site Width:')]/strong", (text) =>
             {
                 return text;
             }, "0"));
@@ -129,17 +129,17 @@ namespace WebCrawlerDemo
             var notesElements = siteDetailDriver.FindElements(By.XPath("//*[contains(@class, 'content campsiteNotes')]/li"));
             siteInfo.Notes = string.Join("||", notesElements.Select(el => el.Text));
 
-            siteInfo.MaxRVLength = double.Parse(CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Max Vehicle Length:')]/strong", (text) =>
+            siteInfo.MaxRVLength = double.Parse(ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Max Vehicle Length:')]/strong", (text) =>
             {
                 return text;
             }, "0"));
 
-            siteInfo.SiteSurface = CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Driveway Surface:')]/strong", (text) =>
+            siteInfo.SiteSurface = ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Driveway Surface:')]/strong", (text) =>
             {
                 return text;
             }, "No data available");
 
-            siteInfo.PetsAllowed = CrawlerUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Maximum Number of Pets:')]/strong", (text) =>
+            siteInfo.PetsAllowed = ScrapingUtil.GetValueByLabel(siteDetailDriver, "//*[contains(text(), 'Maximum Number of Pets:')]/strong", (text) =>
             {
                 return int.Parse(text) > 0 ? "Yes" : "No";
             }, "No");

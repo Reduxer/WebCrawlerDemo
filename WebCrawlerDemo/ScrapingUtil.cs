@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebCrawlerDemo
 {
-    public static class CrawlerUtil
+    public static class ScrapingUtil
     {
 
         public static string GetValueByLabel(IWebDriver driver, string xpath, Func<string, string> valueSelector, string defaultValue = "")
