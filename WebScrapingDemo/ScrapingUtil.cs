@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace WebCrawlerDemo
+namespace WebScrapingDemo
 {
     public static class ScrapingUtil
     {
