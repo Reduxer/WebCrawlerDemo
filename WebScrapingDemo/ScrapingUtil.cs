@@ -15,6 +15,7 @@ namespace WebScrapingDemo
         {
             try
             {
+                Console.WriteLine("Scraping");
                 var node = driver.FindElement(By.XPath(xpath))!;
                 return valueSelector.Invoke(node.Text);
 

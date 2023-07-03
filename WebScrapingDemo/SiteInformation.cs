@@ -29,6 +29,8 @@ namespace WebScrapingDemo
 
         public string PicnicTable { get; set; } = default!;
 
+        [XPathSelector(Value = "//*[contains(text(), 'Site Access:')]/strong")]
+        [XPathSelector(Value = "//*[contains(text(), 'Driveway Entry:')]/strong")]
         public string Access { get; set; } = default!;
 
         public int MyProperty { get; set; }
